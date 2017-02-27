@@ -1,0 +1,24 @@
+<div class="panel panel-primary boxShadow">
+    <div class="panel-heading">
+        <h3>Guest Information</h3>
+    </div>
+    <div class="panel-body">
+        <form action="" name="consSearch" class="col-xs-12">
+            <input id="firstName" type="text" class="form-control input-lg" placeholder="First Name" ng-model="guest.firstName" name="firstName" required minlength="1">
+            
+            <input id="lastName" type="text" class="form-control input-lg" placeholder="Last Name" ng-model="guest.lastName" name="lastName" required minlength="1">
+            
+            <!-- <input id="company" type="text" class="form-control input-lg" placeholder="Company Name" ng-model="guest.company" name="email" required minlength="1"> -->
+            
+            <input id="email" type="text" class="form-control input-lg" placeholder="Email Address" ng-model="guest.email" name="email" required minlength="1">
+            
+            <!-- <button ng-if="printButton" class="btn btn-danger btn-lg col-xs-12 col-sm-2 col-sm-offset-3 " ng-click="$event.preventDefault(); printBadge()">PRINT BADGE</button> -->
+
+            <button class="btn btn-success btn-lg col-xs-12 col-sm-4 searchBtn" ng-click="$event.preventDefault(); submitGuest()">SUBMIT</button>
+            
+            <button ng-if="printButton" class="btn btn-danger btn-lg col-xs-12 col-sm-2 pull-right" ng-click="$event.preventDefault(); clearFields();">CLEAR</button>
+            
+            <!-- <button class="btn btn-success btn-lg col-xs-12 col-sm-4 searchBtn" ng-click="$event.preventDefault(); submitGuest()">SUBMIT</button> -->
+        </form>
+    </div>
+</div>

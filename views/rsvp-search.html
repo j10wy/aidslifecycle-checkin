@@ -1,0 +1,28 @@
+<div class="panel panel-primary boxShadow">
+    <div class="panel-heading">
+        <h3>Search for a Reservation</h3>
+    </div>
+    <div class="panel-body">
+        <form action="" name="consSearch" class="col-xs-12">
+            <div class="col-sm-12">
+                <input id="Name" type="text" class="form-control input-lg" placeholder="First name, last name, or e-mail address" ng-model="searchBox" name="searchBox" required minlength="1">
+            </div>
+        </form>
+        <div class="col-xs-12 table-responsive" ng-if="members">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <td><h5>First Name</h5></td>
+                    <td><h5>Last Name</h5></td>
+                    <td><h5>E-Mail</h5></td>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="participant in members | filter:searchBox | limitTo:10" ng-click="open('lg', participant)">
+                        <td>{{participant.name.first}}</td>
+                        <td>{{participant.name.last}}</td>
+                        <td>{{participant.email.primary_address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
