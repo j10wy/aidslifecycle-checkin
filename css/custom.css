@@ -1,0 +1,118 @@
+body {
+    background: #1b3c6c url(../img/bg-comty-html-simple.jpg) no-repeat top center;
+    padding-top: 100px
+}
+
+form,
+input {
+    display: block;
+}
+
+table > tbody > tr {
+    cursor: pointer;
+}
+
+input,
+div.btn {
+    margin: 10px 0;
+}
+
+img[alt="AIDS/LifeCycle logo"] {
+    margin: 20px auto;
+}
+
+#consSearch {
+    margin-bottom: 10px;
+}
+
+#badgeInformation {
+    display: none;
+}
+
+.boxShadow {
+    box-shadow: 3px -3px 5px rgba(0, 0, 0, .3);
+}
+
+.message-container {
+    padding: 10px;
+}
+
+.searchBtn {
+    display: block;
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+}
+
+
+/* Chrome Edits */
+
+.navbar-inverse {
+    background-color: #00345D;
+    border-color: #000;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.panel {
+    border: none;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #FF8616;
+    border-color: #FF8616;
+}
+
+.panel-heading > h3 {
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+}
+
+.modal-content {
+    background-color: #fff;
+}
+
+.modal-header > h3 {
+    color: black;
+}
+
+.modal-body {
+    color: #000;
+}
+
+.modal-body h4 {
+    text-decoration: underline;
+    color: #000;
+}
+
+.modal-body > .row> div.col-sm-6:first-child {
+    margin-bottom: 30px;
+}
+
+@media print {
+    body > *:not(#badgeInformation),
+    .modal-header,
+    .modal-body,
+    .modal-footer,
+    div.modal-dialog.modal-lg {
+        display: none;
+    }
+    body {
+        padding-top: 0;
+        text-align: center;
+    }
+    #badgeInformation {
+        display: block;
+        padding-top: 15px;
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+}
