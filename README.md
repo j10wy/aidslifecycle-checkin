@@ -24,15 +24,15 @@ ALC needed a system that could track registered participants at events throughou
 First, run the _***ALC Event Check-In (Build CSV to JSON)***_ located in the _***Report Writer***_ in Luminate Online.  
 > _You may edit the report to change the TeamRaiser event and the name of the report - ***DO NOT*** edit the column names in step 3 of the report builder._
 
-![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/alc-event-checkin-v2/master/readme/001_run_report.png)
+![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/aidslifecycle-checkin/master/readme/001_run_report.png)
 
 In Sumbline Text (v3+), open the .csv downloaded from Luminate Online. 
 
-![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/alc-event-checkin-v2/master/readme/002_open_csv_sublime.png)
+![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/aidslifecycle-checkin/master/readme/002_open_csv_sublime.png)
 
 Open Sublime's Command Palatte, type _***DataConverter***_ and choose _***to JSON***_. Sublime will convert the .csv to JSON format. Save/overwrite the file to the _***js***_ directory as _***participants.json***_.
 
-![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/alc-event-checkin-v2/master/readme/003_dataconverter.png)
+![Run check-in report](https://raw.githubusercontent.com/jeffreylowy/aidslifecycle-checkin/master/readme/003_dataconverter.png)
 
 ## Blackbaud Server
 
