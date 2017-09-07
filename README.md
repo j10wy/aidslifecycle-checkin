@@ -12,12 +12,22 @@ ALC needed a system that could track registered participants at events throughou
 1) `git clone <repo URL>`
 2) `npm install`
 3) Update/overwrite `js/participants.json`
+4) Create the file `.config/luminate.config.js` - see below
 4) Upload FTP to `​​customerftp.convio.net` (a new directory is OK)
 5) Update Wordpress if you would like to create a short URL that points to the app
 
 #### To Do
 1) hosted on an external server
-2) include an admin panel.
+2) include an admin panel
+
+## Luminate API Key
+
+```javascript
+var luminate_config {
+	// Where XXXX is the API Key from the Luminate Online Site Settings
+	api_key = "XXXXX"
+}
+```
 
 ## Updating the Participant Roster (JSON file)
 
