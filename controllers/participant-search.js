@@ -47,28 +47,24 @@ onlineCheckin.controller('participantSearch', function($scope, $log, $http, $roo
             });
             //End Success function
         }, function(responseData) {
-            //Error
-            $log.error("Log Interaction Unsuccessful");
-            $log.error(responseData);
-            //End Error function
-            alert("You have been logged out. Please log in.");
-            window.location.href = '#!/';
+
+            if (modalInstance.result) {
+
+                modalInstance.result.then(function (selectedItem) {
+                    $log.info(selectedItem.name.first + " " + selectedItem.name.last + " checked in at " + new Date());
+                }, function (message) {
+                    $log.warn('Modal dismissed at: ' + new Date() + " | Reason:" + message);
+
+                });
+            } else {
+                //Error
+                $log.error(responseData);
+                $log.warn("Not connected. Can't open window.");
+                alert("You have been logged out. Please log in.");
+                window.location.href = '#!/';
+            }
+
         });
-
-        if (modalInstance.result) {
-
-            modalInstance.result.then(function(selectedItem) {
-                $log.info(selectedItem.name.first + " " + selectedItem.name.last + " checked in at " + new Date());
-            }, function(message) {
-                $log.warn('Modal dismissed at: ' + new Date() + " | Reason:" + message);
-
-            });
-        } else {
-            $log.warn("Not connected. Can't open window.");
-            alert("You have been logged out. Please log in.");
-            window.location.href = '#!/';
-        }
-
 
     }; //End open function
 
