@@ -57,7 +57,7 @@ onlineCheckin.controller('participantInformation', function($scope, $http, $root
             consId = "&cons_id=" + $scope.selected.consInfo.cons_id,
             interactionTypeId = "&interaction_type_id=1000",
             interactionSubject = "&interaction_subject=Event check-in",
-            interactionBody = "&interaction_body=Check-in at NC Expo.";
+            interactionBody = "&interaction_body=" + luminate_config.interaction_body;
 
         $http({
             method: 'POST',
