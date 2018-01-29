@@ -1,6 +1,28 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+}
+
+.guest-fadeIn {
+    margin-top:10px;
+    margin-bottom: 10px;
+    animation-name: fadeIn;
+    animation-duration: 2000ms;
+}
+
 body {
-    background: #1b3c6c url(../img/bg-comty-html-simple.jpg) no-repeat top center;
-    padding-top: 100px
+    background: #1b3c6c url(../img/bg.svg) no-repeat top center;
+    padding-top: 100px;
+    background-size: cover;
 }
 
 form,
@@ -8,17 +30,13 @@ input {
     display: block;
 }
 
-table > tbody > tr {
+table tbody tr {
     cursor: pointer;
 }
 
 input,
 div.btn {
     margin: 10px 0;
-}
-
-img[alt="AIDS/LifeCycle logo"] {
-    margin: 20px auto;
 }
 
 #consSearch {
@@ -39,21 +57,27 @@ img[alt="AIDS/LifeCycle logo"] {
 
 .searchBtn {
     display: block;
-    // margin-top: 10px;
-    // margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-
-/* Chrome Edits */
-
 .navbar-inverse {
-    background-color: #00345D;
+    background-color: rgb(35, 31, 32);
     border-color: #000;
     color: #fff;
 }
 
-.navbar-inverse .navbar-nav>li>a {
+.navbar-inverse .navbar-nav li  a {
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-header {
+    margin-top: -5px;
+}
+
+.navbar-header .logo {
+    height: 35px;
 }
 
 .panel {
@@ -62,11 +86,11 @@ img[alt="AIDS/LifeCycle logo"] {
 
 .panel-primary>.panel-heading {
     color: #fff;
-    background-color: #FF8616;
-    border-color: #FF8616;
+    background-color: #414042;
+    border-color: #414042;
 }
 
-.panel-heading > h3 {
+.panel-heading>h3 {
     color: white;
 }
 
@@ -75,11 +99,33 @@ img[alt="AIDS/LifeCycle logo"] {
     padding: 15px;
 }
 
+.modal-header h3.modal-title {
+    display: inline-block;
+}
+
+.modal-header .checkin-success {
+    display: inline-block;
+    opacity: 0;
+    font-size: 40px;
+    line-height: 0px;
+    color: #45dd3b;
+}
+
+#guest-success {
+    opacity: 0;
+    font-size: 40px;
+    line-height: 0px;
+    color: #45dd3b;
+    text-align: center;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
 .modal-content {
     background-color: #fff;
 }
 
-.modal-header > h3 {
+.modal-header>h3 {
     color: black;
 }
 
@@ -88,16 +134,18 @@ img[alt="AIDS/LifeCycle logo"] {
 }
 
 .modal-body h4 {
-    text-decoration: underline;
-    color: #000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #FFF;
 }
 
-.modal-body > .row> div.col-sm-6:first-child {
+.modal-body>.row div.col-sm-6:first-child {
     margin-bottom: 30px;
 }
 
 @media print {
-    body > *:not(#badgeInformation),
+    body>*:not(#badgeInformation),
     .modal-header,
     .modal-body,
     .modal-footer,
@@ -114,5 +162,14 @@ img[alt="AIDS/LifeCycle logo"] {
         font-size: 24px;
         text-align: center;
         font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .panel-primary .panel-heading {
+        overflow: auto;
+    }
+    .panel-primary .panel-heading .searchBtn {
+        width: 100%;
     }
 }

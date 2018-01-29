@@ -1,5 +1,5 @@
 //Include after app module and participant-search.js
-onlineCheckin.controller('participantInformation', function($scope, $http, $rootScope, $log, $uibModalInstance, participant) {
+onlineCheckin.controller('participantInformation', function ($scope, $http, $rootScope, $log, $uibModalInstance, participant) {
 
     //ALC Options
     var header = {
@@ -10,36 +10,36 @@ onlineCheckin.controller('participantInformation', function($scope, $http, $root
 
     $scope.checkInButtonDisable = true;
     $scope.selected = participant;
-    $rootScope.badgeInformation = {
+    // $rootScope.badgeInformation = {
 
-        firstName: $scope.selected.consInfo.name.first,
-        lastName: $scope.selected.consInfo.name.last,
-        partType: $scope.selected.partType,
-        teamName: $scope.selected.teamName,
-        isTeamCaptain: true,
-        isRoadieCaption: false,
-        roadieTeamAssignment: "Rest Stop 1"
+    //     firstName: $scope.selected.consInfo.name.first,
+    //     lastName: $scope.selected.consInfo.name.last,
+    //     partType: $scope.selected.partType,
+    //     teamName: $scope.selected.teamName,
+    //     isTeamCaptain: true,
+    //     isRoadieCaption: false,
+    //     roadieTeamAssignment: "Rest Stop 1"
 
-    };
+    // };
 
-    $scope.displayBadge = function() {
+    // $scope.displayBadge = function() {
 
-        switch ($scope.selected.consInfo.custom.string[0].content) {
-            case "STAFF":
-                $scope.badgeSrc = "img/lanyard-alc-staff.jpg";
-                break;
-            case "ROADIE":
-                $scope.badgeSrc = "img/lanyard-roadie.jpg";
-                break;
-            case "VIRTUAL CYCLIST":
-                $scope.badgeSrc = "img/lanyard-virtual-cyclist.jpg";
-                break;                
-            default:
-                $scope.badgeSrc = "img/sf-expo.png";
-        }
-    };
+    //     switch ($scope.selected.consInfo.custom.string[0].content) {
+    //         case "STAFF":
+    //             $scope.badgeSrc = "img/lanyard-alc-staff.jpg";
+    //             break;
+    //         case "ROADIE":
+    //             $scope.badgeSrc = "img/lanyard-roadie.jpg";
+    //             break;
+    //         case "VIRTUAL CYCLIST":
+    //             $scope.badgeSrc = "img/lanyard-virtual-cyclist.jpg";
+    //             break;                
+    //         default:
+    //             $scope.badgeSrc = "img/sf-expo.png";
+    //     }
+    // };
 
-    $scope.displayBadge();
+    // $scope.displayBadge();
 
     $scope.printBadge = function() {
         window.print();
@@ -68,11 +68,20 @@ onlineCheckin.controller('participantInformation', function($scope, $http, $root
             //Success
             $log.info("Log Interaction Successful for cons: " + $scope.selected.consInfo.cons_id);
             $log.info(responseData);
-            $uibModalInstance.close($scope.selected);
+            var checkin_success = document.getElementById("checkin-success");
+            checkin_success.classList.add("fadeIn");
+            setTimeout(function() {
+                checkin_success.classList.remove("fadeIn");
+                $uibModalInstance.close($scope.selected);
+            }, 1000);
+            
         }, function(responseData) {
             //Error
             $log.error("Log Interaction Unsuccessful");
             $log.error(responseData);
+            alert("Session timed out. Please login.");
+            $uibModalInstance.close($scope.selected);
+            window.location.href = '#!/';
         });
     };
 

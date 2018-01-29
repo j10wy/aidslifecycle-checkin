@@ -1,5 +1,10 @@
 onlineCheckin.controller('guestInformation', function($rootScope, $scope, $http, $log) {
 
+    if ($rootScope.loggedIn === false) {
+        alert("You are not logged in!");
+        window.location.href = '#!/';
+    }
+
     $scope.$watchGroup(["guest.firstName", "guest.lastName", "guest.email"], function(newValues, oldValues) {
 
         console.log(newValues);
@@ -51,7 +56,12 @@ onlineCheckin.controller('guestInformation', function($rootScope, $scope, $http,
             //Success
             $log.info("Zapier task successful for: " + $scope.guest.firstName + " " + $scope.guest.lastName);
             $log.info(responseData);
+            var guest_success = document.getElementById("guest-success");
+            guest_success.classList.add("guest-fadeIn");
             $scope.clearFields();
+            setTimeout(function () {
+                guest_success.classList.remove("guest-fadeIn");
+            }, 3000);
         }, function(responseData) {
             //Error
             $log.error("Zapier task unsuccessful");

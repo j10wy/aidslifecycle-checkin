@@ -1,6 +1,11 @@
 //Include after app-check-in.js
 onlineCheckin.controller('participantSearch', function($scope, $log, $http, $rootScope, $uibModal) {
 
+    if ($rootScope.loggedIn === false) {
+        alert("You are not logged in!");
+        window.location.href = '#!/';
+    }
+
     //ALC Options
     var header = {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -19,8 +24,6 @@ onlineCheckin.controller('participantSearch', function($scope, $log, $http, $roo
             luminateMethod = "method=getUser",
             consId = "&cons_id=" + participant.consId,
             modalInstance = {};
-
-        //$log.info(consId);
 
         $http({
             method: 'POST',
@@ -61,11 +64,18 @@ onlineCheckin.controller('participantSearch', function($scope, $log, $http, $roo
                 $log.error(responseData);
                 $log.warn("Not connected. Can't open window.");
                 alert("You have been logged out. Please log in.");
+                $rootScope.loggedIn = false;
                 window.location.href = '#!/';
             }
 
         });
 
     }; //End open function
+    
+    // Function to clear the fields on the search fields
+    $scope.clear = function(){
+        $scope.searchBox.firstName = "";
+        $scope.searchBox.lastName = "";
+    };
 
 });

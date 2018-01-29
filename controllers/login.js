@@ -1,5 +1,8 @@
 onlineCheckin.controller('loginCtrl', function($scope, $log, $http, $rootScope) {
 
+    $scope.username = luminate_config.username;
+    $scope.password = luminate_config.password;
+
     //ALC Options
     var header = {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -28,6 +31,8 @@ onlineCheckin.controller('loginCtrl', function($scope, $log, $http, $rootScope) 
                 
                 $rootScope.loggedIn = true;
                 $rootScope.logInError = false;
+                window.location.href = '#!/search';
+                
             }, function(responseData) {
                 //Error
                 $log.warn("Login unsuccessful!");

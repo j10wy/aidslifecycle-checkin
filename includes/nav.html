@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#/">
-                <img alt="Brand" src="img/aidslifecycle-logo-white.png" style="height:25px;">
+                <img src="img/aidslifecycle-logo.svg" class="logo">
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -12,10 +12,24 @@
             </button>
         </div>
         <ul class="nav navbar-nav collapse navbar-collapse navbar-right" id="menu">
-            <li><a href="#/">Login</a></li>
-            <li ng-if="$root.loggedIn==true"><a href="#!/search">Participants</a></li>
-            <li ng-if="$root.loggedIn==true"><a href="#!/rsvp">RSVP</a></li>
-            <li ng-if="$root.loggedIn==true"><a href="#!/guest">Guest</a></li>
+            <li ng-if="$root.loggedIn==false">
+                <a href="#/">Login</a>
+            </li>
+            <li ng-if="$root.loggedIn==true">
+                <a href="#!/search">
+                    <button class="btn btn-warning btn-nav">PARTICIPANTS</button>
+                </a>
+            </li>
+            <li ng-if="$root.loggedIn==true">
+                <a href="#!/rsvp">
+                    <button class="btn btn-info btn-nav">RSVP</button>
+                </a>
+            </li>
+            <li ng-if="$root.loggedIn==true">
+                <a href="#!/guest">
+                    <button class="btn btn-info btn-nav">NEW GUEST</button>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
