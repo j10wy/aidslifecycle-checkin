@@ -23,10 +23,11 @@ ALC needed a system that could track registered participants at events throughou
 ## Luminate API Key
 
 ```javascript
-var luminate_config {
-	// Where XXXX is the API Key from the Luminate Online Site Settings
-	api_key : "XXXXX",
-	interaction_body: "Check-in at NC Holiday Party."
+var luminate_config = {
+	api_key: "XXXXXXXXXXXXXXXXXX",
+	interaction_body: "Text for the body interaction.",
+	username: "LUMINATE ONLINE USERNAME",
+	password: "LUMINATE ONLINE PASSWORD"
 }
 ```
 
@@ -86,6 +87,6 @@ The Convio API returns a max of 1000 constituent records in an API. ALC TeamRais
   "angular-route": "^1.3.3",
   "angular-ui-bootstrap": "^0.14.3",
   "bootstrap": "^3.3.6",
-  "jquery": "^1.11.3"
+  "jquery": "^3.3.1"
 }
 ```
